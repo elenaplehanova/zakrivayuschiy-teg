@@ -36,7 +36,7 @@
 }
 
 .header {
-  font-family: var(--accent-font, sans-serif);
+  font-family: var(--accent-font, fantasy);
   margin-block: 100px;
   text-align: center;
   padding-block-start: clamp(120px, 30%, 136px);
@@ -61,13 +61,13 @@
 .theme-menu__list {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 0.4em;
   align-items: start;
   margin-inline-start: 15px;
 }
 
 .button {
-  background-color: transparent;
+  background-color: var(--background-color);
   border: 0;
   cursor: pointer;
 }
@@ -145,16 +145,19 @@
 
 .card-button-wrapper {
   display: flex;
-  gap: 9px;
+  gap: 7px;
   margin: 25px;
 }
 .card__icon-button {
   margin-left: auto;
   padding: 0;
   border: 2px solid transparent;
-  transition: 1s ease;
+  transition: 0.3s ease;
   height: 38px;
   width: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .card__icon-button:focus {
   outline: none;
@@ -167,35 +170,35 @@
 }
 
 .core {
-  transition: fill 0.03s ease;
+  transition: fill 0.03s linear;
   fill: transparent;
 }
 
 .card__icon-button:hover .core {
   fill: var(--accent-color);
-  transition: fill 0.3s ease;
+  transition: fill 0.3s linear;
 }
 
 .card__icon-button:active .core,
 .like-icon.is-liked .core {
   fill: var(--fill-color);
-  transition: fill 0.3s ease;
+  transition: fill 0.3s linear;
 }
 
 .main-body {
   fill: transparent;
-  transition: fill 0.3s ease;
+  transition: fill 0.3s linear;
 }
 
 .card__icon-button:hover .main-body {
   fill: var(--accent-color);
-  transition: fill 0.3s ease 0.05s;
+  transition: fill 0.3s linear 0.05s;
 }
 
 .card__icon-button:active .main-body,
 .like-icon.is-liked .main-body {
   fill: var(--fill-color);
-  transition: fill 0.3s ease 0.05s;
+  transition: fill 0.3s linear 0.05s;
 }
 
 .like-icon .contour {
@@ -205,16 +208,16 @@
 
 .like-icon.is-liked .contour {
   fill: var(--fill-color);
-  transition: fill 0.3s ease 0.06s;
+  transition: fill 0.3s linear 0.06s;
 }
 
 .like-icon.is-liked .heart {
-  animation: scale 0.3s ease-in 0.1s alternate 2;
+  animation: scale 0.3s ease-in 0.1s alternate 1;
   transform-origin: center center;
 }
 
 .like-icon.is-liked .sparks {
-  animation: opacity 0.3s ease-in 0.3s alternate 2;
+  animation: opacity 0.3s ease-in 0.3s alternate 1;
 }
 
 .card__like-button {
@@ -237,7 +240,7 @@
   position: relative;
   font-size: 14px;
   line-height: 0.9;
-  font-family: var(--accent-font, sans-serif);
+  font-family: var(--accent-font, fantasy);
   transition: color 1s ease;
   z-index: 1;
 }
