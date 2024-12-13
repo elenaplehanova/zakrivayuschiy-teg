@@ -70,6 +70,9 @@
   background-color: var(--background-color);
   border: 0;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .theme-menu__button {
@@ -155,9 +158,6 @@
   transition: 0.3s ease;
   height: 38px;
   width: 38px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .card__icon-button:focus {
   outline: none;
@@ -221,19 +221,14 @@
 }
 
 .card__like-button {
-  border: 2px solid currentColor;
   width: 130px;
   height: 38px;
 }
 
 .card__save-button {
-  border: 2px solid currentColor;
   padding: 15px 20px;
   margin: auto;
   margin-block: 50px 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 10px;
 }
 .button__text {
@@ -245,14 +240,13 @@
   z-index: 1;
 }
 
-.card__like-button,
-.card__save-button {
+.button_type_outlined{
   position: relative;
+  border: 2px solid currentColor;
   transition: box-shadow 0.3s ease, color 1s ease;
 }
 
-.card__like-button::before,
-.card__save-button::before {
+.button_type_outlined::before {
   content: "";
   display: block;
   position: absolute;
@@ -264,26 +258,22 @@
   background-color: currentColor;
 }
 
-.card__like-button:hover::before,
-.card__save-button:hover::before {
+.button_type_outlined:hover::before {
   width: 100%;
 }
 
-.card__like-button:hover .button__text,
-.card__save-button:hover .button__text {
+.button_type_outlined:hover .button__text {
   color: var(--background-color);
 }
 
-.card__save-button:hover .floppy-icon {
+.button_type_outlined:hover .floppy-icon {
   color: var(--background-color);
 }
 
-.card__like-button:focus,
-.card__save-button:focus {
+.button_type_outlined:focus {
   outline: none;
 }
-.card__like-button:focus-visible,
-.card__save-button:focus-visible {
+.button_type_outlined:focus-visible {
   box-shadow: 2px 2px currentColor;
 }
 
