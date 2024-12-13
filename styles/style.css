@@ -19,7 +19,7 @@
   min-block-size: 100dvb;
   font-size: 18px;
   font-family: var(--main-font, sans-serif);
-  font-variation-settings: "wght" var(--main-font-weight);
+  font-variation-settings: 'wght' var(--main-font-weight);
   color: var(--accent-color);
   background-color: var(--background-color);
   background-image: var(--background-image);
@@ -87,7 +87,7 @@
 }
 
 .theme-menu__button::after {
-  content: "";
+  content: '';
   display: block;
   height: 3px;
   width: 0%;
@@ -111,7 +111,7 @@
 }
 
 .theme-menu__button:disabled::before {
-  content: "▶";
+  content: '▶';
   position: absolute;
   left: -12px;
   color: currentColor;
@@ -128,7 +128,7 @@
 }
 
 .card__title {
-  font-variation-settings: "wght" var(--title-font-weight);
+  font-variation-settings: 'wght' var(--title-font-weight);
   padding: 4px 10px;
   font-size: inherit;
 }
@@ -240,14 +240,14 @@
   z-index: 1;
 }
 
-.button_type_outlined{
+.button_type_outlined {
   position: relative;
   border: 2px solid currentColor;
   transition: box-shadow 0.3s ease, color 1s ease;
 }
 
 .button_type_outlined::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 0;
