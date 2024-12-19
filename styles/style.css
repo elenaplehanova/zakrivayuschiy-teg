@@ -21,11 +21,10 @@
   font-family: var(--main-font, sans-serif);
   font-variation-settings: "wght" var(--main-font-weight);
   color: var(--accent-color);
-  background-color: var(--background-color);
+  background-color: var(--accent-color);
   background-image: var(--background-image);
-  background-size: 4px;
+  background-size: cover;
   background-repeat: repeat;
-  background-attachment: fixed;
 }
 
 .block-wrapper {
@@ -123,11 +122,38 @@
 .card p:not(:last-child) {
   margin-block-end: 27px;
 }
+.card:not(:last-child) {
+  margin-block-end: 50px;
+}
 
 .card__title {
   font-variation-settings: "wght" var(--title-font-weight);
   padding: 4px 10px;
   font-size: inherit;
+}
+.card__image-wrapper {
+  position: relative;
+}
+
+.card__image-label {
+  position: absolute;
+  right: clamp(10px, 1.5vw, 25px);
+  top: 25px;
+  color: var(--accent-color);
+  font-size: 14px;
+  font-family: var(--accent-font, fantasy);
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+  text-shadow: -1px 0 var(--background-color), 0 1px var(--background-color),
+    1px 0 var(--background-color), 0 -1px var(--background-color);
+}
+
+@supports ((text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000)) {
+  .card__image-label {
+    -webkit-text-stroke: 1px var(--background-color);
+    text-stroke: 1px var(--background-color);
+    text-shadow: none;
+  }
 }
 
 .card__image {
@@ -135,11 +161,39 @@
   border-block: 2px solid currentColor;
   aspect-ratio: 1/1;
   object-fit: cover;
-  object-position: right;
+  object-position: center;
+}
+
+.filter-blur {
+  filter: blur(3px) brightness(110%) saturate(110%);
+}
+
+.filter-contrast {
+  filter: contrast(150%);
+}
+
+.filter-brightness {
+  filter: brightness(150%);
+}
+
+.filter-saturate {
+  filter: saturate(300%);
+}
+
+.filter-invert {
+  filter: invert(80%);
+}
+
+.filter-sepia {
+  filter: sepia(0.6);
+}
+
+.filter-hue-rotate {
+  filter: hue-rotate(295deg) blur(2px);
 }
 
 .card__paragraph {
-  margin: 25px;
+  margin: 25px 26px;
   line-height: 21px;
 }
 
@@ -226,9 +280,11 @@
 }
 
 .card__save-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 15px 20px;
-  margin: auto;
-  margin-block: 50px 100px;
+  margin: 0 auto 100px;
   gap: 10px;
 }
 .button__text {
@@ -236,8 +292,9 @@
   font-size: 14px;
   line-height: 0.9;
   font-family: var(--accent-font, fantasy);
-  transition: color 1s ease;
+  color: var(--button-text-color);
   z-index: 1;
+  mix-blend-mode: difference;
 }
 
 .button_type_outlined {
@@ -254,20 +311,13 @@
   left: 0;
   height: 100%;
   width: 0%;
-  transition: 0.5s ease-in-out;
-  background-color: currentColor;
+  background-color: var(--button-text-color);
+  transition: width 0.5s linear;
+  mix-blend-mode: difference;
 }
 
 .button_type_outlined:hover::before {
   width: 100%;
-}
-
-.button_type_outlined:hover .button__text {
-  color: var(--background-color);
-}
-
-.button_type_outlined:hover .floppy-icon {
-  color: var(--background-color);
 }
 
 .button_type_outlined:focus {
@@ -281,15 +331,61 @@
   width: 21px;
   z-index: 1;
   transition: color 1s ease;
+  mix-blend-mode: difference;
+  color: var(--button-text-color);
 }
 
-@media (width <= 375px) {
+@media (width < 376px) {
   .floppy-icon {
     width: 28px;
+    z-index: 1;
   }
 
   .card__save-button {
     flex-direction: column;
     gap: 10px;
   }
+}
+
+.dialog[open] {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  background-color: var(--background-color);
+  font-family: var(--accent-font, fantasy);
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 30px;
+  width: clamp(344px, 30%, 353px);
+  margin: auto;
+}
+
+@media (width < 376px) {
+  .dialog[open] {
+    padding-inline: 42px;
+  }
+}
+
+.dialog[open] form {
+  display: grid;
+  gap: 30px;
+}
+.dialog[open] .dialog-content {
+  display: flex;
+  gap: 20px;
+}
+.dialog[open] .dialog__paragraph {
+  line-height: 1.5;
+}
+
+.dialog[open] .button_type_outlined {
+  padding-block: 12.5px;
+}
+
+.dialog[open] .floppy-icon {
+  flex-shrink: 0;
+  width: 39px;
+}
+
+.dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
 }
