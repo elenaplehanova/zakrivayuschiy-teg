@@ -10,7 +10,22 @@
   --title-font-weight: 700;
   --background-color: #fff;
   --accent-color: #000;
-  --background-image: url(/svg/pattern-light.svg);
+  --button-text-color: #fff;
+  --background-line: #d3d3d3;
+  --background-image: repeating-linear-gradient(
+      var(--background-line) 0,
+      var(--background-line) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      to right,
+      var(--background-line) 0px,
+      var(--background-line) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(180deg, #e7e7e7 0% 0.01%, #1a1a1a 100%);
 }
 @media (prefers-color-scheme: light) {
   :root {
@@ -18,7 +33,22 @@
     --title-font-weight: 700;
     --background-color: #fff;
     --accent-color: #000;
-    --background-image: url(/svg/pattern-light.svg);
+    --button-text-color: #fff;
+    --background-line: #d3d3d3;
+    --background-image: repeating-linear-gradient(
+        var(--background-line) 0,
+        var(--background-line) 2px,
+        transparent 2px,
+        transparent 4px
+      ),
+      repeating-linear-gradient(
+        to right,
+        var(--background-line) 0px,
+        var(--background-line) 2px,
+        transparent 2px,
+        transparent 4px
+      ),
+      linear-gradient(180deg, #e7e7e7 0% 0.01%, #1a1a1a 100%);
   }
 }
 
@@ -27,7 +57,22 @@
   --title-font-weight: 785;
   --background-color: #000;
   --accent-color: #00cc14;
-  --background-image: url(/svg/pattern-dark.svg);
+  --button-text-color: #00cc14;
+  --background-line: #000;
+  --background-image: repeating-linear-gradient(
+      var(--background-line) 0,
+      var(--background-line) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      to right,
+      var(--background-line) 0px,
+      var(--background-line) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(180deg, #007f0c 0%, #004306 100%);
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -35,6 +80,21 @@
     --title-font-weight: 785;
     --background-color: #000;
     --accent-color: #00cc14;
-    --background-image: url(/svg/pattern-dark.svg);
+    --button-text-color: #00cc14;
+    --background-line: #000;
+    --background-image: repeating-linear-gradient(
+        var(--background-line) 0,
+        var(--background-line) 2px,
+        transparent 2px,
+        transparent 4px
+      ),
+      repeating-linear-gradient(
+        to right,
+        var(--background-line) 0px,
+        var(--background-line) 2px,
+        transparent 2px,
+        transparent 4px
+      ),
+      linear-gradient(180deg, #007f0c 0%, #004306 100%);
   }
 }
